@@ -1,8 +1,6 @@
 #include"PloyLink.h"
 #include"stringFun.h"
 #include<string.h>
-
-
 int main(void)
 {
 	List la, lb, lc;
@@ -31,6 +29,9 @@ int main(void)
 	puts(k[1]);
 	puts(k[2]);
 	puts(k[3]);*/
+	for (int i = 0; i < 4; i++) {
+		printf("address=%p\n", k[i]);
+	}
 	ploy_resolve(k);
 	/*char aa[] = "aaa";
 	char *b2;

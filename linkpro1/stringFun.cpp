@@ -81,22 +81,27 @@ void ploy_getCoeAndExp(char node[], double* coefficient, double* expenent) {
 }
 
 List ploy_resolve(char** s) {
-	puts(*s);
-	puts(*(s + 1));
-	puts(*s + 2);
-	puts(*s + 3);
+	for (int i = 0; i < 4; i++) {
+		//s[i ] = s[i] + 8;
+		//printf("address=%p\n", s[i+1]);
+	}
+	s[1] = s[0] + 8;
+	puts(*s++);
+	puts(*s++);
+	puts(*s++);
+	puts(*s++);
 	double c, e;
 	List list;
 	char r[300];
 	//r = NULL;
 	int len = sizeof(s);
 	InitializeList(&list);
-	for (int i = 0; i < len; i++) {
-		puts(s[i]);
+	/*for (int i = 0; i < len; i++) {
+		//puts(s[i]);
 		strcopy(s[i], r);
 		ploy_getCoeAndExp(s[i], &c, &e);
 		printf("(%g--%g)\n", c, e);
-	}
+	}*/
 	//puts(s[2]);
 	PrintTheList(list);
 	return list;
