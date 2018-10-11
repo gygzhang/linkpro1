@@ -115,6 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PloyLink.cpp" />
+    <ClCompile Include="PloyLinkExecute.cpp" />
+    <ClCompile Include="stringFun.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PloyLink.h" />
+    <ClInclude Include="stringFun.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
