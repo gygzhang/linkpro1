@@ -39,7 +39,7 @@ void PrintTheList(List list) {
 	//DistingishList(&list);
 	scan = list;
 	while (scan != NULL) {
-		//µÚÒ»¸ö½Úµã²»´òÓ¡¼ÓºÅ
+		//
 		if (scan != list) {
 			if (scan->item.coefficient > 0) {
 				printf("+");
@@ -50,7 +50,7 @@ void PrintTheList(List list) {
 				continue;
 			}
 		}
-		printf("%.0lfx^%.0lf", scan->item.coefficient, scan->item.exponent);
+		printf("%g*x^%g", scan->item.coefficient, scan->item.exponent);
 		scan = scan->next;
 	}
 	printf("\n");

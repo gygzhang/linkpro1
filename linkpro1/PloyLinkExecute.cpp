@@ -1,6 +1,8 @@
 #include"PloyLink.h"
 #include"stringFun.h"
 #include<string.h>
+#include<stdio.h>
+#include<Windows.h>
 int main(void)
 {
 	List la, lb, lc;
@@ -10,29 +12,50 @@ int main(void)
 	InitializeList(&lb);
 	InitializeList(&lc);
 
-	char a[] = "-1234*x^3+22*x^3+44*x^3+36*x^3";
+	char a[5000];// = "-1234*x^3+22*x^3+44*x^3+36*x^3";
 	//char b[] = "-123456";
-	char y[] = "35*x^55";
+	memset(a, 0, 5000);
+	//print_int(1000);
+	
+	//char *a = "-1234*x^3+22*x^3+44*x^3+36*x^3";
+	strcopy("-1234+22*x^3-x^8+3*x^3+12*x^2+x+9*x^23+x-25+8*x^23+9+1*x^2", a);
+	//strcopy("3-9-8+7", a);
+	//print_int(count(a));
 	char mark[] = "+";
 	char mark1[] = "*x^";
-	char *bb;
+	//insert_before_minus(a);
+	//insert_by_postion(a, '+', 1);
+	//puts(a);
 
+	//arr_add(a);
+	//makeup(a);
+	//char *bb;
+	//aaaaaaa(a);
 	double f, g;
 	//f = g = NULL;
 	/*puts(y);
 	ploy_getCoeAndExp(y, &f,& g);
 	printf("%g***%g", f, g);*/
-	puts("hello");
-	char** k = (char**)malloc(500);
+	//puts("hello");
+	char** k;// = (char**)malloc(5000);
+	/*k[0] = (char*)malloc(500);
+	k[1] = (char*)malloc(500);
+	k[2] = (char*)malloc(500);
+	k[3] = (char*)malloc(500);*/
+	//puts(a);
 	k = spliteByMark(a, mark);
+	/*printf("k[0]=%s\n", (k[0]));
+	printf("k[1]=%s\n", (k[1]));
+	printf("k[2]=%s\n", (k[2]));
+	printf("k[3]=%s\n", (k[3]));*/
+	print_1darr(k[0]);
+	//print_2darr(k);
+	//ploy_getCoeAndExp(k[0], &f, &g);
 	/*puts(k[0]);
 	puts(k[1]);
 	puts(k[2]);
 	puts(k[3]);*/
-	for (int i = 0; i < 4; i++) {
-		printf("address=%p\n", k[i]);
-	}
-	ploy_resolve(k);
+	//ploy_resolve(k);
 	/*char aa[] = "aaa";
 	char *b2;
 	b2 = (char *)malloc(300);*/

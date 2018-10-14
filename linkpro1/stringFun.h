@@ -17,7 +17,27 @@ List ploy_resolve(char **s);
 
 char* spliteByMark1(char s[], char mark[]);
 
-void strcopy(char *a, char *b);
+void strcopy(const char *a, char *b);
+
+void aaaaaaa(char* p);
+
+char* makeup(char* p);
+
+void arr_insert(char *p,char* t);
+
+void arr_add(char* p);
+
+void insert_by_postion(char* p, char t, int pos);
+
+void insert_before_minus(char*p);
+
+int  count(char *p);
+
+void print_int(int a);
+
+void print_2darr(char**);
+
+void print_1darr(char *);
 
 
 
