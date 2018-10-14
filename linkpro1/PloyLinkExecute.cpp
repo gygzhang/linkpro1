@@ -18,11 +18,13 @@ int main(void)
 	//print_int(1000);
 	
 	//char *a = "-1234*x^3+22*x^3+44*x^3+36*x^3";
-	strcopy("-1234+22*x^3-x^8+3*x^3+12*x^2+x+9*x^23+x-25+8*x^23+9+1*x^2", a);
-	//strcopy("3-9-8+7", a);
+	//strcopy("-1234+22*x^3-x^8+3*x^3+12*x^2+x+9*x^23+x-25+8*x^23+9+1*x^2", a);
+	strcopy("012345678", a);
 	//print_int(count(a));
 	char mark[] = "+";
-	char mark1[] = "*x^";
+	char mark1[] = "sb";
+
+	insert_chars(a, mark1, 2);
 	//insert_before_minus(a);
 	//insert_by_postion(a, '+', 1);
 	//puts(a);
@@ -43,12 +45,12 @@ int main(void)
 	k[2] = (char*)malloc(500);
 	k[3] = (char*)malloc(500);*/
 	//puts(a);
-	k = spliteByMark(a, mark);
+	//k = spliteByMark(a, mark);
 	/*printf("k[0]=%s\n", (k[0]));
 	printf("k[1]=%s\n", (k[1]));
 	printf("k[2]=%s\n", (k[2]));
 	printf("k[3]=%s\n", (k[3]));*/
-	print_1darr(k[0]);
+	//print_1darr(k[0]);
 	//print_2darr(k);
 	//ploy_getCoeAndExp(k[0], &f, &g);
 	/*puts(k[0]);

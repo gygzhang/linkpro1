@@ -418,3 +418,19 @@ void print_1darr(char *k) {
 		putchar(*(k + i));
 	}
 }
+
+void insert_chars(char* p, char* t,int pos) {
+	int len1 = strlen(t);
+	int len2 = strlen(p);
+	print_int(len2);
+	puts(p);
+	for (int i = len2; i > pos; i--) {
+		*(p + i + len1-1) = *(p + i-1);	
+	}
+
+	for (int j = pos; j < pos + len1; j++) {
+		*(p +j) = *t++;
+	}
+	print_int(strlen(p));
+	puts(p);
+}

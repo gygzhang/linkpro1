@@ -39,5 +39,7 @@ void print_2darr(char**);
 
 void print_1darr(char *);
 
+void insert_chars(char*, char*,int pos);
+
 
 
