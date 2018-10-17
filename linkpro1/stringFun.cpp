@@ -133,194 +133,50 @@ void strcopy(const char *a, char* b) {
 	*b = '\0';
 }
 
-void aaaaaaa(char* p) {
-		List list;
-		InitializeList(&list);
-		double c, e;
-		char* cp;
-		int sign = 1;
-		bool hasExp = true;
-		char signsp = 1;
-		bool hasCoe = true;
-		bool end = false;
-	cp = p;
-	if (*cp == '-')	sign = -1;
-	if (*cp == '+')	sign = 1;
-	cp++;
-	p = cp;
-	while (true) {
-		
-		//printf("break-->%s\n", p);
-		hasExp = false;
-		hasCoe = true;
-		//处理系数
-		while(true){
-			
-			if ((*cp == 'x')|| *cp == '*') {
-				if(*(cp + 1) != '+'&& *(cp + 1) != '-'){
-					*cp = '\0';	
-					hasExp = true;
-				}
-			}
-			if (*cp == '^') {
-				*cp = '\0';
-				cp++;
-				hasExp = true;
-				break;
-			}
-			//125+8*x^2
-			if ((*cp >= '0'&&*cp <= '9') &&( *(cp + 1) == '+' || *(cp + 1) == '-')&&hasExp==false ) {
-				hasExp = false;
-				//printf("cp=%s,         cp+1=%s\n ", cp, (cp + 1));
-				char rec = *(cp + 1);
-				*(cp + 1) = '\0';
-				c = sign * charToDouble(p);
-				addNode(&list, c, 0);
-				if (rec == '+') sign = 1;
-				if (rec == '-') sign = -1;
-				//printf("ifsign-->%d\n", sign);
-				p = cp = cp + 2;
-				//printf("if1-->%s\n", p);
-				break;
-			}
-			
-			//printf("cp=%s,         cp+1=%s\n ", cp, (cp + 1));
-			if (*cp == 'x'&&((*(cp + 1) == '+' )||( *(cp + 1) == '-') )) {
-				//printf("sign-->%d\n", sign);
-				hasExp = false;
-				char rec = *(cp + 1);
-				*cp = '\0';
-				*(cp + 1) = '\0';
-				c = sign * charToDouble(p);
-				if ((rec == '+')) sign = 1;
-				if ((rec == '-')) sign = -1;
-				
-				addNode(&list, c, 1);
-				p = cp = cp + 2;
-				//printf("if2-->%s\n", p);
-				break;
-			}
+bool isLastNode(char* p) {
+	return 0;
+}
 
-				cp++;
-		}
-		if (!hasExp) continue;
-		//printf("ww-->%s\n", cp);
-		c = sign*charToDouble(p);
-		p = cp ;
-		
-		//处理指数
-		printf("--------------------->%s\n", cp);
-		while (*cp) {
-			if (*cp == '+' || *cp == '-') {
-				if (*cp == '+') {
-					sign = 1;
-				}
-				if (*cp == '-') {
-					sign = -1;
-				}
-				if ((*cp == '+' || *cp == '-') && *(cp + 1) == 'x'&&(*(cp + 2) != '+' &&*(cp + 2) != '-')&& *(cp + 2) != '\0') {
-					
-					
-					hasCoe = false;
-					//c = sign * 1;
-					double temp = sign * 1;
-					
-						*(cp + 2) = *(cp + 1) = *cp = '\0';
-						e = charToDouble(p);
-						addNode(&list, c, e);
-						p = cp = cp + 3;
-					while (*cp >= '0'&&*cp <= '9') cp++;
-					if (*cp == '+') {
-						sign = 1;
-					}
-					if (*cp == '-') {
-						sign = -1;
-					}
-					*cp = '\0';
-					e = charToDouble(p);
-					addNode(&list, temp, e);
-				}
-
-				if((*cp == '+' || *cp == '-') && *(cp + 1) == 'x'&&*(cp + 2) == '+' || *(cp + 2) == '-'&&*(cp + 3) != '\0') {
-					hasCoe = false;									
-					if (*(cp+1) == '+') {
-						sign = 1;
-					}
-					if (*(cp+1) == '-') {
-						sign = -1;
-					}
-					*cp = '\0';
-					*(cp+1) = '\0';
-					e = charToDouble(p);
-					addNode(&list, c, e);
-					addNode(&list, sign, 1);
-					p = cp = cp + 1;
-					if (*(cp + 1) == '+') {
-						sign = 1;
-					}
-					if (*(cp + 1) == '-') {
-						sign = -1;
-					}
-					p = cp = cp + 1;
-				}
-
-				if ((*cp == '+' || *cp == '-') && *(cp + 1) == 'x'&&*(cp + 2) =='\0' ) {
-					//puts("aaaaaaa");
-					hasCoe = false;
-					end = true;
-					if (*(cp + 1) == '+') {
-						sign = 1;
-					}
-					if (*(cp + 1) == '-') {
-						sign = -1;
-					}
-					*cp = '\0';
-					*(cp + 1) = '\0';
-					e = charToDouble(p);
-					addNode(&list, c, e);
-					addNode(&list, sign, 1);
-					break;
-				}
-
-				if ((*cp == '+' || *cp == '-') && *(cp + 1) >= '0'&&*(cp + 1) <= '9'&&*(cp + 2) == '\0') {
-					puts("aaaaaaa");
-					hasCoe = false;
-					end = true;
-					if (*(cp + 1) == '+') {
-						sign = 1;
-					}
-					if (*(cp + 1) == '-') {
-						sign = -1;
-					}
-					*cp = '\0';
-					//*(cp + 1) = '\0';
-					e = charToDouble(p);
-					addNode(&list, c, e);
-					p = cp = cp + 1;
-					c = charToDouble(p);
-					addNode(&list, c, 0);
-					break;
-				}
-
-
-				*cp = '\0';
-				break;
-			}
-			
-			cp++;
-		}
-		printf("cp+1--->>>%s\n",cp+1);
-		if (hasCoe) {
-			e = charToDouble(p);
-			addNode(&list, c, e);
-			//printf("cp=%s,         cp+1=%s\n ", cp, (cp + 1));			
-		}
-		cp++;
-		p = cp;
-		if (*cp == '\0') break;
+List aaaaaaa(char* p) {
+	List list;
+	InitializeList(&list);
+	double c, e;
+	Node node;
+	char* fix,*move;
+	fix = move = p;
+	int sign=1;
+	int length = strlen(p);
+	if (*move == '-') {
+		sign = -1;
+		*move = 0;
+		fix=move=++move;
 	}
-	PrintTheList(list);
-
+	while (*move !='\0') {
+		puts(fix+1);
+		while (*move != '^') {
+			if(*move=='*' || *move=='x')
+			*move = '\0';
+			move++;
+		}
+		*move = 0;
+		c = sign*charToDouble(fix);
+		move = move++;
+		fix = move;
+		while (*move != '+'&&*move != '-'&&*move != '\0') {
+			move++;
+		}
+		if (*move == '\0') break;
+		if (*move == '+')  sign = 1;
+		if (*move == '-') sign = -1;
+		*move = 0;
+		e = charToDouble(fix);
+		addNode(&list, c, e);
+		 move = move++;
+		 fix = move;
+	}
+	e = charToDouble(fix);
+	addNode(&list, c, e);
+	return list;
 }
 
 char* makeup(char* p) {

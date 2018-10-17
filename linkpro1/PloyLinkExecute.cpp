@@ -12,19 +12,19 @@ int main(void)
 	InitializeList(&lb);
 	InitializeList(&lc);
 
-	char a[5000];// = "-1234*x^3+22*x^3+44*x^3+36*x^3";
+	char *a=(char*)malloc(5000);// = "-1234*x^3+22*x^3+44*x^3+36*x^3";
 	//char b[] = "-123456";
 	memset(a, 0, 5000);
 	//print_int(1000);
 	
 	//char *a = "-1234*x^3+22*x^3+44*x^3+36*x^3";
-	//strcopy("-1234+22*x^3-x^8+3*x^3+12*x^2+x+9*x^23+x-25+8*x^23+9+1*x^2", a);
-	strcopy("012345678", a);
+	strcopy("-22*x^3+3*x^3-12*x^2+4*x^8", a);
+	//strcopy("012345678", a);
 	//print_int(count(a));
-	char mark[] = "+";
+	/*char mark[] = "+";
 	char mark1[] = "sb";
 
-	insert_chars(a, mark1, 2);
+	insert_chars(a, mark1, 2);*/
 	//insert_before_minus(a);
 	//insert_by_postion(a, '+', 1);
 	//puts(a);
@@ -32,7 +32,15 @@ int main(void)
 	//arr_add(a);
 	//makeup(a);
 	//char *bb;
-	//aaaaaaa(a);
+	//fgets(a, 5000, stdin);
+	List aaa = aaaaaaa(a);
+	//puts("the frist ploynomial is : ");
+	PrintTheList(aaa);
+
+	/*fgets(a, 5000, stdin);
+	List bbb = aaaaaaa(a);
+	puts("the frist ploynomial is : ");
+	PrintTheList(bbb);*/
 	double f, g;
 	//f = g = NULL;
 	/*puts(y);

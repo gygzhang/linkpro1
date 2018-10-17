@@ -19,7 +19,7 @@ char* spliteByMark1(char s[], char mark[]);
 
 void strcopy(const char *a, char *b);
 
-void aaaaaaa(char* p);
+List aaaaaaa(char* p);
 
 char* makeup(char* p);
 
@@ -40,6 +40,10 @@ void print_2darr(char**);
 void print_1darr(char *);
 
 void insert_chars(char*, char*,int pos);
+
+bool isLastNode(char* p);
+
+void test(char* p);
 
 
 
